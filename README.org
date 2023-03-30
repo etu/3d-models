@@ -1,1 +1,5 @@
 * 3D models I've made in OpenSCAD
+
+** =roborock-stopper-for-dryer-stand.scad=
+This is a blocker to put on certain dryer stands to block robot vacuum
+cleaners to get stuck on them.
