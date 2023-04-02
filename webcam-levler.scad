@@ -1,6 +1,6 @@
-base_width = 57 + 0.3; // Base of camera is 55mm
+base_width = 59 + 0.2; // Base of camera is ~59mm
 base_height = 4; // Enough height so camera hook doesn't cover the screen
-base_depth = 14; // About the same depth as the flat area on top of my screen
+base_depth = 12; // About the same depth as the flat area on top of my screen
 side_wall_height = 6; // Same height as the thickness of the camera mount
 side_wall_width = 4; // Thickness of the side walls
 front_hook_depth = 4; // Thickness of the hooks
