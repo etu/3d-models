@@ -4,6 +4,10 @@
 This is a blocker to put on certain dryer stands to block robot vacuum
 cleaners to get stuck on them.
 
+** =table-stabilizier.scad=
+This is an object supposed to be put in each corner to make my kitchen table
+more stable.
+
 ** =webcam-levler.scad=
 This is an object to raise up the webcam so the front hook of the webcam
 doesn't cover the screen.
