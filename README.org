@@ -1,5 +1,8 @@
 * 3D models I've made in OpenSCAD
 
+** =ring-toy.scad=
+This is a fidget toy with rings.
+
 ** =roborock-stopper-for-dryer-stand.scad=
 This is a blocker to put on certain dryer stands to block robot vacuum
 cleaners to get stuck on them.
