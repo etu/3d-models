@@ -1,5 +1,8 @@
 * 3D models I've made in OpenSCAD
 
+** =lamp-top-corner.scad=
+This is a spare part for a lamp.
+
 ** =ring-toy.scad=
 This is a fidget toy with rings.
 
