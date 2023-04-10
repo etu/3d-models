@@ -14,6 +14,11 @@ cleaners to get stuck on them.
 This is an object supposed to be put in each corner to make my kitchen table
 more stable.
 
+** =water-co2-machine-bottle-stabilizer.scad=
+This is an object designed to put around the CO₂ bottle in my CO₂ water
+machine, because if I don't push the bottle forwards 5mm it just doesn't work
+at all.
+
 ** =webcam-levler.scad=
 This is an object to raise up the webcam so the front hook of the webcam
 doesn't cover the screen.
