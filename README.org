@@ -10,6 +10,9 @@ This is a fidget toy with rings.
 This is a blocker to put on certain dryer stands to block robot vacuum
 cleaners to get stuck on them.
 
+** =router-holder.scad=
+Holder brackets for my router to mount it to the wall.
+
 ** =table-stabilizier.scad=
 This is an object supposed to be put in each corner to make my kitchen table
 more stable.
