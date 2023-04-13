@@ -3,6 +3,9 @@
 ** =lamp-top-corner.scad=
 This is a spare part for a lamp.
 
+** =logitech-camera-holder.scad=
+This is a new chassis and holder for my disassembled Logitech webcam.
+
 ** =ring-toy.scad=
 This is a fidget toy with rings.
 
