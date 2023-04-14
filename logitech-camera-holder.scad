@@ -6,17 +6,17 @@ module front() {
   translate([2,0,2]) union() {
     // Front to have around camera
     difference() {
-      cube([85.6, wall_thickness, 30.4]);
+      cube([85.6, wall_thickness, 30.4+wiggly]);
       translate([85.6/2,3,-2.8+66.4/4]) rotate([90,0,0]) cylinder(d=66.4,h=wall_thickness+2);
     }
 
     // Upper and lower wall
     translate([0,0,-wall_thickness]) cube([85.6,22,wall_thickness]);
-    translate([0,0,30.4]) cube([85.6,22,wall_thickness]);
+    translate([0,0,30.4+wiggly]) cube([85.6,22,wall_thickness]);
 
     // Left and right wall
-    translate([-wall_thickness,0,-wall_thickness]) cube([wall_thickness,22,30.4+wall_thickness*2]);
-    translate([85.6,0,-wall_thickness]) cube([wall_thickness,22,30.4+wall_thickness*2]);
+    translate([-wall_thickness,0,-wall_thickness]) cube([wall_thickness,22,30.4+wiggly+wall_thickness*2]);
+    translate([85.6,0,-wall_thickness]) cube([wall_thickness,22,30.4+wiggly+wall_thickness*2]);
   }
 }
 
@@ -24,13 +24,13 @@ module back() {
   union() {
     // Base outside of back cube
     difference() {
-      cube([85.6+wall_thickness*4+wiggly,22+wall_thickness+wiggly,30.4+wall_thickness*4+wiggly]);
-      translate([wall_thickness,-1,wall_thickness]) cube([85.6+wall_thickness*2+wiggly,22+1+wiggly,30.4+wall_thickness*2+wiggly]);
+      cube([85.6+wall_thickness*4+wiggly*2,22+wall_thickness+wiggly,30.4+wall_thickness*4+wiggly*2]);
+      translate([wall_thickness,-1,wall_thickness]) cube([85.6+wall_thickness*2+wiggly*2,22+1+wiggly*2,30.4+wall_thickness*2+wiggly*2]);
 
       // Make a hole cutout
       translate([78.0,25,19.85]) rotate([90,0,0]) hull() {
-        translate([0,0,0]) cylinder(d=5.3,h=4);
-        translate([4.2,0,0]) cylinder(d=5.3,h=4);
+        translate([0,0,0]) cylinder(d=5.3+wiggly*2,h=4);
+        translate([4.2,0,0]) cylinder(d=5.3+wiggly*2,h=4);
       }
 
       // Make a cable cutout
@@ -46,22 +46,22 @@ module back() {
 }
 
 module base() {
-  translate([6,0,12]) union() {
+  translate([17,7,12]) union() {
     // Basic arms.
-    cube([6+72.5+3, 6, 3]);
-    cube([6,6+73+3,3]);
+    cube([6+72.5+3-14, 6, 3]);
+    cube([6,6+73-14+3,3]);
 
     // Arm end grips
-    translate([72.5+3,0,-12]) cube([6,6,12]);
-    translate([0,73+3,-12]) cube([6,6,12]);
+    translate([72.5+3-14,0,-12]) cube([6,6,12]);
+    translate([0,73-14+3,-12]) cube([6,6,12]);
 
     // Left core grip
-    translate([-6,6,0]) cube([9,6,3]);
-    translate([-6,6,-12]) cube([3,6,12]);
+    translate([-6-11,6,0]) cube([9+11,6,3]);
+    translate([-6-11,6,-12]) cube([3,6,12]);
 
     // Front core grip
-    translate([6,-6,0]) cube([6,9,3]);
-    translate([6,-6,-12]) cube([6,3,12]);
+    translate([6,-6-7,0]) cube([6,9+7,3]);
+    translate([6,-6-7,-12]) cube([6,3,12]);
 
     // Mounting hole
     translate([12,-2,0]) rotate([0,0,45]) intersection() {
