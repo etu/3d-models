@@ -1,5 +1,8 @@
 * 3D models I've made in OpenSCAD
 
+** =keychain.scad=
+A simple keychain that I've made.
+
 ** =lamp-top-corner.scad=
 This is a spare part for a lamp.
 
