@@ -1,36 +1,36 @@
 * 3D models I've made in OpenSCAD
 
-** =cabinet-hook.scad=
+** =cabinet-hook/=
 A small hook for a cabinet.
 
-** =keychain.scad=
+** =keychain/=
 A simple keychain that I've made.
 
-** =lamp-top-corner.scad=
+** =lamp-top-corner/=
 This is a spare part for a lamp.
 
-** =logitech-camera-holder.scad=
+** =logitech-camera-holder/=
 This is a new chassis and holder for my disassembled Logitech webcam.
 
-** =ring-toy.scad=
+** =ring-toy/=
 This is a fidget toy with rings.
 
-** =roborock-stopper-for-dryer-stand.scad=
+** =roborock-stopper-for-dryer-stand/=
 This is a blocker to put on certain dryer stands to block robot vacuum
 cleaners to get stuck on them.
 
-** =router-holder.scad=
+** =router-holder/=
 Holder brackets for my router to mount it to the wall.
 
-** =table-stabilizier.scad=
+** =table-stabilizier/=
 This is an object supposed to be put in each corner to make my kitchen table
 more stable.
 
-** =water-co2-machine-bottle-stabilizer.scad=
+** =water-co2-machine-bottle-stabilizer/=
 This is an object designed to put around the CO₂ bottle in my CO₂ water
 machine, because if I don't push the bottle forwards 5mm it just doesn't work
 at all.
 
-** =webcam-levler.scad=
+** =webcam-levler/=
 This is an object to raise up the webcam so the front hook of the webcam
 doesn't cover the screen.
