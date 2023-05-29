@@ -7,7 +7,7 @@ module front() {
     // Front to have around camera
     difference() {
       cube([85.6, wall_thickness, 30.4+wiggly]);
-      translate([85.6/2,3,-2.8+66.4/4]) rotate([90,0,0]) cylinder(d=66.4,h=wall_thickness+2);
+      translate([85.6/2,3,-2.8+66.4/4]) rotate([90,0,0]) cylinder(d=69.4,h=wall_thickness+2);
     }
 
     // Upper and lower wall
@@ -29,8 +29,8 @@ module back() {
 
       // Make a hole cutout
       translate([78.0,25,19.85]) rotate([90,0,0]) hull() {
-        translate([0,0,0]) cylinder(d=5.3+wiggly*2,h=4);
-        translate([4.2,0,0]) cylinder(d=5.3+wiggly*2,h=4);
+        translate([0,0,0]) cylinder(d=7.3+wiggly*2,h=4);
+        translate([4.2,0,0]) cylinder(d=7.3+wiggly*2,h=4);
       }
 
       // Make a cable cutout
