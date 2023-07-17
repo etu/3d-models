@@ -26,6 +26,9 @@ Holder brackets for my router to mount it to the wall.
 This is an object supposed to be put in each corner to make my kitchen table
 more stable.
 
+** =toothbrush-holder/=
+This is a toothbrush holder with drainage from reside water.
+
 ** =water-co2-machine-bottle-stabilizer/=
 This is an object designed to put around the CO₂ bottle in my CO₂ water
 machine, because if I don't push the bottle forwards 5mm it just doesn't work
