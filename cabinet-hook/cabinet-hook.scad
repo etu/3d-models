@@ -1,8 +1,10 @@
+$fn = 64;
+
 translate([1,14,23.5]) rotate([-90,0,0]) union() {
   // Back-side hook.
   translate([-0.5,0,0]) difference() {
     // Base cube
-    cube([11, 7.3, 6.8]);
+    cube([11, 7, 6.8]);
 
     // Cut out outer sides to make two hooks
     translate([-1,-1,-1]) cube([2,9.3,5]);
@@ -13,11 +15,28 @@ translate([1,14,23.5]) rotate([-90,0,0]) union() {
   }
 
   // Hook back
-  translate([-1,-1,-4]) cube([12, 24.5, 4]);
+  hull() {
+    // Bottom
+    translate([5,19.5,-4]) cylinder(r=4, h=4);
+
+    // Two top back corners
+    translate([1,1,-1]) cylinder(r=2, h=1);
+    translate([9,1,-1]) cylinder(r=2, h=1);
+
+    // Two top front corners
+    translate([1,1,-2]) sphere(r = 2);
+    translate([9,1,-2]) sphere(r = 2);
+  }
 
   // Hook base
-  translate([-1,19.5,-14]) cube([12, 4, 10]);
+  hull() {
+    translate([5,19.5,-1]) cylinder(r=4, h=1);
+    translate([5,19.5,-10]) sphere(r=4);
+  }
 
   // Hook front
-  translate([-1,9.5,-14]) cube([12,10,4]);
+  hull() {
+    translate([5,9.5,-12]) sphere(r=2);
+    translate([5,19.5,-10]) sphere(r=4);
+  }
 }
