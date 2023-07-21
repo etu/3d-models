@@ -3,6 +3,9 @@
 ** =cabinet-hook/=
 A small hook for a cabinet.
 
+** =garbage-bin-hook/=
+A small hook for hanging a garbage bin.
+
 ** =keychain/=
 A simple keychain that I've made.
 
