@@ -48,20 +48,20 @@ module back() {
 module base() {
   translate([17,7,12]) union() {
     // Basic arms.
-    cube([6+72.5+3-14, 6, 3]);
-    cube([6,6+73-14+3,3]);
+    cube([3+72.5+3-14-1.7, 6, 3]);
+    cube([6,6+73-14,3]);
 
     // Arm end grips
-    translate([72.5+3-14,0,-12]) cube([6,6,12]);
-    translate([0,73-14+3,-12]) cube([6,6,12]);
+    translate([72.5+3-14-1.7,0,-12]) cube([3,6,12]);
+    translate([0,73-14+3,-12]) cube([6,3,12]);
 
     // Left core grip
-    translate([-6-11,6,0]) cube([9+11,6,3]);
-    translate([-6-11,6,-12]) cube([3,6,12]);
+    translate([-6-11+1.7,6,0]) cube([9+11,6,3]);
+    translate([-6-11+1.7,6,-12]) cube([3,6,12]);
 
     // Front core grip
-    translate([6,-6-7,0]) cube([6,9+7,3]);
-    translate([6,-6-7,-12]) cube([6,3,12]);
+    translate([6,-6-7-2,0]) cube([6,9+7,3]);
+    translate([6,-6-7-2,-12]) cube([6,3,12]);
 
     // Mounting hole
     translate([12,-2,0]) rotate([0,0,45]) intersection() {
