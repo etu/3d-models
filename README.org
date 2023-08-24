@@ -1,4 +1,6 @@
 * 3D models I've made in OpenSCAD
+** =business-card-holder/=
+A simple holder for business cards.
 
 ** =cabinet-hook/=
 A small hook for a cabinet.
