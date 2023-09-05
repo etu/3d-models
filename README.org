@@ -27,6 +27,10 @@ cleaners to get stuck on them.
 ** =router-holder/=
 Holder brackets for my router to mount it to the wall.
 
+** =shopping-cart-fake-coin/=
+A fake coin to use with shopping carts. The one from the store broke so I
+made a new one ¯\_(ツ)_/¯.
+
 ** =table-stabilizier/=
 This is an object supposed to be put in each corner to make my kitchen table
 more stable.
