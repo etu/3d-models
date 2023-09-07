@@ -31,6 +31,9 @@ Holder brackets for my router to mount it to the wall.
 A fake coin to use with shopping carts. The one from the store broke so I
 made a new one ¯\_(ツ)_/¯.
 
+** =sparv-hooks/=
+Custom hooks for Sparv.
+
 ** =table-stabilizier/=
 This is an object supposed to be put in each corner to make my kitchen table
 more stable.
