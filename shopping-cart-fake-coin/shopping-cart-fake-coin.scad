@@ -13,5 +13,8 @@ union() {
   translate([20,0,0]) difference() {
     cylinder(d=15, h=thickness);
     translate([0,0,-1]) cylinder(d=9, h=thickness+2);
+
+    // Cut out of ring
+    translate([3.5,-1,-1]) cube([5,2,thickness+2]);
   }
 }
