@@ -23,7 +23,7 @@ module baseHook() {
       // Back wall cube
       translate([87/2-11,0,0]) cube([22,15,width]);
       // Build out to top front of hook
-      translate([87/2-10.5,62,0]) cylinder(d=1, h=width);
+      translate([87/2-10.5,60.3,0]) cylinder(d=1, h=width);
       // Build out to bottom front of hook
       translate([87/2+10.5,55,0]) cylinder(d=1, h=width);
     }
