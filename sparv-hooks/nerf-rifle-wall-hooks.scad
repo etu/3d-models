@@ -39,5 +39,5 @@ difference() {
 // The hook with the cube cut out
 translate([0,-65,0]) difference() {
   baseHook();
-  translate([31.5,24,-1]) cube([15,25,width+2]);
+  translate([31.5,25.5,-1]) cube([15,25,width+2]);
 }
