@@ -12,11 +12,11 @@ module baseHook() {
       }
 
       // Cut out for mounting holes
-      translate([15,19,width/2]) rotate([90,0,0]) cylinder(d=4, h=20);
-      translate([72,19,width/2]) rotate([90,0,0]) cylinder(d=4, h=20);
+      translate([15,19,width/2]) rotate([90,0,0]) cylinder(d=5, h=20);
+      translate([72,19,width/2]) rotate([90,0,0]) cylinder(d=5, h=20);
 
-      translate([15,14,width/2]) rotate([90,0,0]) cylinder(d=10, h=5);
-      translate([72,14,width/2]) rotate([90,0,0]) cylinder(d=10, h=5);
+      translate([15,14,width/2]) rotate([90,0,0]) cylinder(d=11, h=5);
+      translate([72,14,width/2]) rotate([90,0,0]) cylinder(d=11, h=5);
     }
 
     hull() {
