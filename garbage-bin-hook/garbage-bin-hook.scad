@@ -1,4 +1,5 @@
-$fn = 64;
+// Rounding of edges
+$fn = 64; // [12:128]
 
 rotate([0,-90,0]) difference() {
   union() {

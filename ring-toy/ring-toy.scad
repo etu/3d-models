@@ -1,10 +1,20 @@
-inner_ring_size = 21; // Inner size in mm (diameter of inner ring);
-wall_thickness = 4.25; // Wall thickness on the spheres;
-space_between_rings = 0.5; // Space between rings;
-height = 16; // Height of the result;
-ring_count = 4; // Amount of rings;
+// Inner size in mm (diameter of inner ring)
+inner_ring_size = 21; // [18:24]
 
-$fn = 128; // Quality of spheres;
+// Wall thickness on the spheres
+wall_thickness = 4.25;
+
+// Spacing between rings
+space_between_rings = 0.5;
+
+// Height of the result
+height = 16; // [13:20]
+
+// Amount of rings (including the middle bit)
+ring_count = 5; // [1:7]
+
+// Quality of spheres
+$fn = 128; // [32:128]
 
 module ring(radius) {
   difference() {
@@ -20,6 +30,6 @@ module ring(radius) {
   }
 }
 
-for (i = [0:ring_count]) {
+for (i = [0:ring_count-1]) {
   ring((inner_ring_size / 2) + (wall_thickness + space_between_rings) * i);
 }

@@ -1,4 +1,5 @@
-text_string = "My Keychain"; // Text label
+// Text label
+text_string = "My Keychain";
 text_size = 5;
 text_height = 1;
 
@@ -9,7 +10,8 @@ key_height = 2; // Height of the keychain
 ring_diameter = 6;
 ring_thickness = 2;
 
-$fn = 64;
+// Rounding of edges
+$fn = 64; // [12:128]
 
 module keychain() {
   translate([key_width/-2, key_depth/-2, 0]) cube([key_width, key_depth, key_height]);

@@ -1,4 +1,5 @@
-$fn = 64;
+// Rounding of edges
+$fn = 64; // [12:128]
 
 translate([1,14,23.5]) rotate([-90,0,0]) union() {
   // Back-side hook.

@@ -1,5 +1,8 @@
-width = 15;
-$fn = 64;
+// Width of the hook
+width = 15; // [13:20]
+
+// Rounding of edges
+$fn = 64; // [12:128]
 
 module baseHook() {
   union() {

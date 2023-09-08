@@ -1,6 +1,8 @@
 wall_thickness = 2;
 wiggly = 0.2;
-$fn = 128;
+
+// Rounding of edges
+$fn = 128; // [12:128]
 
 module front() {
   translate([2,0,2]) union() {

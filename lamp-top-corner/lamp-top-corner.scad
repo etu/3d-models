@@ -4,7 +4,8 @@ inner_depth = 20; // Inner depth in milimeters.
 wall_thickness = 3; // Wall thickness in milimeters.
 rounding_radius = 15;
 
-$fn = 64;
+// Rounding of edges
+$fn = 64; // [12:128]
 
 // TODO:
 // - Make lid for pipes at top

@@ -1,6 +1,8 @@
+// Thickness
 thickness = 3;
 
-$fn = 64;
+// Quality of spheres
+$fn = 64; // [16:128]
 
 union() {
   // Main coin part

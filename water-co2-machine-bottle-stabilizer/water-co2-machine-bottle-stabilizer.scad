@@ -1,8 +1,14 @@
+// Outer length
 olength = 72;
+
+// Outer width
 owidth = 61;
+
+// Outer depth
 odepth = 13;
 
-$fn = 128;
+// Quality of spheres
+$fn = 128; // [16:128]
 
 difference() {
   union() {

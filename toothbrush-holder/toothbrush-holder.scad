@@ -1,4 +1,5 @@
-$fn = 128;
+// Quality of spheres
+$fn = 128; // [16:128]
 
 difference() {
   // Make the base resized (tall) sphere
