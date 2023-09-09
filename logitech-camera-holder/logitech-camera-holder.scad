@@ -1,48 +1,96 @@
+height = 36/2;
+depth = 26;
+width = 92;
 wall_thickness = 2;
-wiggly = 0.2;
 
 // Rounding of edges
-$fn = 128; // [12:128]
+$fn = $preview ? 32 : 128;
 
-module front() {
-  translate([2,0,2]) union() {
-    // Front to have around camera
+module top() {
+  difference() {
+    // Body cube
+    cube([width,depth,height]);
+
+    // Cut out contents
+    translate([wall_thickness,wall_thickness,-2])
+      cube([width-wall_thickness*2,depth-wall_thickness*2,height]);
+
+    // Cut out shadow line
+    translate([wall_thickness/2-0.25,wall_thickness/2-0.25,-1])
+      cube([width-wall_thickness+0.5, depth-wall_thickness+0.5, 2]);
+
+    // Cut out main camera hole
     difference() {
-      cube([85.6, wall_thickness, 30.4+wiggly]);
-      translate([85.6/2,3,-2.8+66.4/4]) rotate([90,0,0]) cylinder(d=69.4,h=wall_thickness+2);
+      // Cylinder to cut out front for camera
+      translate([46.3, 3, -2.7]) rotate([90,0,0]) cylinder(d=69.4,h=wall_thickness+2);
+
+      // Cube to cut out top of cylinder
+      translate([0,-2,height-wall_thickness-1]) cube([width, wall_thickness+4, 20]);
     }
 
-    // Upper and lower wall
-    translate([0,0,-wall_thickness]) cube([85.6,22,wall_thickness]);
-    translate([0,0,30.4+wiggly]) cube([85.6,22,wall_thickness]);
+    // Cut out shadow line behind main camera hole
+    difference() {
+      // Cylinder to cut out front for camera
+      translate([46.3, 5-0.25, -2.7]) rotate([90,0,0]) cylinder(d=69.4+2,h=wall_thickness+2);
 
-    // Left and right wall
-    translate([-wall_thickness,0,-wall_thickness]) cube([wall_thickness,22,30.4+wiggly+wall_thickness*2]);
-    translate([85.6,0,-wall_thickness]) cube([wall_thickness,22,30.4+wiggly+wall_thickness*2]);
+      // Cube to cut out top of cylinder
+      translate([0,0,height-wall_thickness-0.25]) cube([width, wall_thickness+4, 20]);
+    }
+
+    // Make a hole cutout
+    translate([76,27,0]) rotate([90,0,0]) hull() {
+      translate([0,0,0]) cylinder(d=8,h=4);
+      translate([4.5,0,0]) cylinder(d=8,h=4);
+    }
   }
 }
 
-module back() {
-  union() {
-    // Base outside of back cube
-    difference() {
-      cube([85.6+wall_thickness*4+wiggly*2,22+wall_thickness+wiggly,30.4+wall_thickness*4+wiggly*2]);
-      translate([wall_thickness,-1,wall_thickness]) cube([85.6+wall_thickness*2+wiggly*2,22+1+wiggly*2,30.4+wall_thickness*2+wiggly*2]);
+module bottom() {
+  difference() {
+    union() {
+      // Body cube
+      cube([width,depth,height]);
 
-      // Make a hole cutout
-      translate([78.0,25,19.85]) rotate([90,0,0]) hull() {
-        translate([0,0,0]) cylinder(d=7.3+wiggly*2,h=4);
-        translate([4.2,0,0]) cylinder(d=7.3+wiggly*2,h=4);
+      // Add Shadow line buildup
+      translate([wall_thickness-0.5,wall_thickness-0.5,height])
+      cube([width-wall_thickness*2+1, depth-wall_thickness*2+1, 1]);
+
+      // Mounting hole on bottom
+      translate([82/2,13,-6]) rotate([0,90,0]) difference() {
+        hull() {
+          translate([-7,-3.5,0]) cube([7,7,10]);
+          cylinder(d=7, h=10);
+        }
+        translate([0,0,-1]) cylinder(d=5, h=12);
       }
-
-      // Make a cable cutout
-      translate([78.5,-1,-1]) cube([3.1,30,20]);
     }
 
-    // Mounting hole on bottom
-    translate([42.8,7,0]) rotate([0,90,0]) difference() {
-      translate([0,0,0]) cube([10,10,10]);
-      translate([5,5,-1]) cylinder(d=5,h=12);
+    // Cut out contents
+    translate([wall_thickness,wall_thickness,2])
+      cube([width-wall_thickness*2,depth-wall_thickness*2,height]);
+
+    // Cut out main camera hole
+    difference() {
+      // Cylinder to cut out front for camera
+      translate([46.3, 3, 20-2.7]) rotate([90,0,0]) cylinder(d=69.4,h=wall_thickness+2);
+
+      // Cube to cut out bottom of cylinder
+      translate([0,-2,-17.75]) cube([width, wall_thickness+4, 20]);
+    }
+
+    // Cut out main camera hole
+    difference() {
+      // Cylinder to cut out front for camera
+      translate([46.3, 4.75, 17.25]) rotate([90,0,0]) cylinder(d=69.4+2,h=wall_thickness+2);
+
+      // Cube to cut out bottom of cylinder
+      translate([0,-2+0.25,-18]) cube([width, wall_thickness+5, 20]);
+    }
+
+    // Make a hole cutout
+    translate([76,27,18]) rotate([90,0,0]) hull() {
+      translate([0,0,0]) cylinder(d=8,h=4);
+      translate([4.5,0,0]) cylinder(d=8,h=4);
     }
   }
 }
@@ -77,6 +125,6 @@ module base() {
   }
 }
 
-front();
-translate([0,30,0]) back();
+top();
+translate([0,28,0]) bottom();
 translate([0,65,0]) base();
