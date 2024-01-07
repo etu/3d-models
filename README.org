@@ -17,6 +17,10 @@ This is a spare part for a lamp.
 ** =logitech-camera-holder/=
 This is a new chassis and holder for my disassembled Logitech webcam.
 
+** =pearls/nixos-logo/=
+This is a pearl that looks like the NixOS logo. Perfect for children to make
+necklaces from.
+
 ** =ring-toy/=
 This is a fidget toy with rings.
 
