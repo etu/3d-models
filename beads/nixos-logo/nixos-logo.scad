@@ -1,8 +1,8 @@
-// Height of pearl in mm (before scaled down)
-pearlHeight = 40;
+// Height of bead in mm (before scaled down)
+beadHeight = 40;
 
-// Pearl hole diameter in mm (before scaled down)
-pearlHoleDiameter = 20;
+// Bead hole diameter in mm (before scaled down)
+beadHoleDiameter = 30;
 
 // Scale factor to resize the final object
 scaleFactor = 0.125;
@@ -28,7 +28,7 @@ module nixLambda() {
 // Vase
 scale([scaleFactor, scaleFactor, scaleFactor])
 difference() {
-  linear_extrude(height=pearlHeight) union() {
+  linear_extrude(height=beadHeight) union() {
     nixLambda();
 
     translate([70,-3,0]) rotate([0,0,60])
@@ -57,7 +57,7 @@ difference() {
     nixLambda();
   }
 
-  translate([20,-10,pearlHeight/2])
+  translate([20,-10,beadHeight/2])
   rotate([-90,0,-15])
-  cylinder(h=150, d=pearlHoleDiameter);
+  cylinder(h=150, d=beadHoleDiameter);
 }

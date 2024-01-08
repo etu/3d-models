@@ -1,4 +1,12 @@
 * 3D models I've made in OpenSCAD
+** =beads/cute-elephant/=
+Remix of the [[https://www.printables.com/model/439440-cute-elephant-phone-stand][Cute Elephant Phone Stand]], the file =elephant_stand.stl= is
+downloaded from Printables to make it into a bead.
+
+** =beads/nixos-logo/=
+This is a bead that looks like the NixOS logo. Perfect for children to make
+necklaces from.
+
 ** =business-card-holder/=
 A simple holder for business cards.
 
@@ -16,14 +24,6 @@ This is a spare part for a lamp.
 
 ** =logitech-camera-holder/=
 This is a new chassis and holder for my disassembled Logitech webcam.
-
-** =pearls/cute-elephant/=
-Remix of the [[https://www.printables.com/model/439440-cute-elephant-phone-stand][Cute Elephant Phone Stand]], the file =elephant_stand.stl= is
-downloaded from Printables to make it into a pearl/bead.
-
-** =pearls/nixos-logo/=
-This is a pearl that looks like the NixOS logo. Perfect for children to make
-necklaces from.
 
 ** =ring-toy/=
 This is a fidget toy with rings.

@@ -15,13 +15,13 @@ difference() {
         // So we import the elephant again
         scale([0.3, 0.3, 0.1785715]) import("elephant_stand.stl");
         // And do an intersection with a cylinder
-        translate([-15,3,2.5]) rotate([0,90,6]) cylinder(h=30, d=3);
+        translate([-10,1,0]) cube([14,7,5]);
       }
       // We then hull it to get a solid pipe
     }
     // That we union with the main elephant
   }
 
-  // And then cut out hole for pearl
-  translate([-15,3,2.5]) rotate([0,90,6]) cylinder(h=30, d=2);
+  // And then cut out hole for bead
+  translate([-15,3,2.5]) rotate([0,90,6]) cylinder(h=30, d=3);
 }
