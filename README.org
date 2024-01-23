@@ -29,6 +29,9 @@ This is a new chassis and holder for my disassembled Logitech webcam.
 Remix of the [[https://www.printables.com/model/439440-cute-elephant-phone-stand][Cute Elephant Phone Stand]], the file =elephant_stand.stl= is
 downloaded from Printables to make it into a fridge magnet.
 
+** =paper-food-garbage-bag-holder/=
+Holder for food waste bags.
+
 ** =ring-toy/=
 This is a fidget toy with rings.
 
