@@ -1,66 +1,95 @@
-* 3D models I've made in OpenSCAD
-** =beads/cute-elephant/=
+* 3D models I've made in OpenSCAD as a Nix Flake
+
+** =.#beadsCuteElephant=
+
 Remix of the [[https://www.printables.com/model/439440-cute-elephant-phone-stand][Cute Elephant Phone Stand]], the file =elephant_stand.stl= is
 downloaded from Printables to make it into a bead.
 
-** =beads/nixos-logo/=
+** =.#beadsNixosLogo=
+
 This is a bead that looks like the NixOS logo. Perfect for children to make
 necklaces from.
 
-** =business-card-holder/=
+** =.#businessCardHolder=
+
 A simple holder for business cards.
 
-** =cabinet-hook/=
+** =.#cabinetHook=
+
 A small hook for a cabinet.
 
-** =garbage-bin-hook/=
+** =.#garbageBinHook=
+
 A small hook for hanging a garbage bin.
 
-** =keychain/=
+** Keychain shaped like climber holds
+
+- =.#keychainClimberHoldKnob1=
+- =.#keychainClimberHoldKnob2=
+- =.#keychainClimberHoldKnob3=
+- =.#keychainClimberHoldKnob4=
+- =.#keychainClimberHoldKnob5=
+- =.#keychainClimberHoldKnob6=
+
+** =.#keychainLabel=
+
 A simple keychain that I've made.
 
-** =lamp-top-corner/=
+** =.#lampTopCorner=
+
 This is a spare part for a lamp.
 
-** =logitech-camera-holder/=
+** =.#logitechCameraHolder=
+
 This is a new chassis and holder for my disassembled Logitech webcam.
 
-** =magnets/cute-elephant/=
+** =.#magnetsCuteElephant=
+
 Remix of the [[https://www.printables.com/model/439440-cute-elephant-phone-stand][Cute Elephant Phone Stand]], the file =elephant_stand.stl= is
 downloaded from Printables to make it into a fridge magnet.
 
-** =paper-food-garbage-bag-holder/=
+** =.#paperFoodGarbageBagHolder=
+
 Holder for food waste bags.
 
-** =ring-toy/=
+** =.#ringToy=
+
 This is a fidget toy with rings.
 
-** =roborock-stopper-for-dryer-stand/=
+** =.#roborockStopperForDryerStand=
+
 This is a blocker to put on certain dryer stands to block robot vacuum
 cleaners to get stuck on them.
 
-** =router-holder/=
+** =.#routerHolder=
+
 Holder brackets for my router to mount it to the wall.
 
-** =shopping-cart-fake-coin/=
+** =.#shoppingCartFakeCoin=
+
 A fake coin to use with shopping carts. The one from the store broke so I
 made a new one ¯\_(ツ)_/¯.
 
-** =sparv-hooks/=
+** =.#sparvHooksNerfRifleWallHooks=
+
 Custom hooks for Sparv.
 
-** =table-stabilizier/=
+** =.#tableStabilizier=
+
 This is an object supposed to be put in each corner to make my kitchen table
 more stable.
 
-** =toothbrush-holder/=
+** =.#toothbrushHolder=
+
 This is a toothbrush holder with drainage from reside water.
 
-** =water-co2-machine-bottle-stabilizer/=
+** =.#waterCo2MachineBottleStabilizer=
+
 This is an object designed to put around the CO₂ bottle in my CO₂ water
 machine, because if I don't push the bottle forwards 5mm it just doesn't work
 at all.
 
-** =webcam-levler/=
+** =.#webcamLevler=
+
 This is an object to raise up the webcam so the front hook of the webcam
 doesn't cover the screen.
