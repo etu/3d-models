@@ -143,6 +143,14 @@
           meta.description = "Cabinet Hook";
           meta.longDescription = "Hook for hanging stuff in one of my cabinets.";
         };
+        coffeeBeansFunnel = mkOpenscad {
+          name = "coffeeBeansFunnel";
+          src = ./models/coffee-beans-funnel.scad;
+          meta.description = "Coffee Beans Funnel";
+          meta.longDescription = ''
+            Funnel for pouring coffee beans into a coffee grinder.
+          '';
+        };
         garbageBinHook = mkOpenscad {
           name = "garbageBinHook";
           src = ./models/garbage-bin-hook.scad;
