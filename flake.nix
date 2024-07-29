@@ -157,6 +157,16 @@
           meta.description = "Garbage Bin Hook";
           meta.longDescription = "Hook for hanging a garbage bin under my sink.";
         };
+        headphoneHolderSamsungG9 = mkOpenscad {
+          name = "headphoneHolderSamsungG9";
+          src = ./models/headphone-holder-samsung-g9.scad;
+          meta.description = "Headphone holder for Samsung G9";
+          meta.longDescription = ''
+            Hook for hanging up headphones on the back of of the
+            Samsung Odyssey G9.
+          '';
+          meta.homepage = "https://www.printables.com/model/957909";
+        };
         keychainClimberHoldKnob1 = mkOpenscad {
           name = "keychainClimberHoldKnob1";
           src = ./models/keychains/keychain-climbing-hold-knob-1.scad;
