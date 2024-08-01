@@ -101,6 +101,14 @@
     in {
       formatter = pkgs.alejandra;
 
+      # Check target to build all the models defined as packages.
+      checks.allModels = pkgs.runCommand "allModels" {} ''
+        ${builtins.concatStringsSep "\n" (map (pkgName: ''
+          mkdir -p $out/${pkgName}
+          ln -s ${self.packages.${system}.${pkgName}}/* $out/${pkgName}/
+        '') (builtins.attrNames self.packages.${system}))}
+      '';
+
       packages = {
         beadsCuteElephant = mkOpenscad {
           name = "beadsCuteElephant";
