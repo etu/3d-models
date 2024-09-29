@@ -175,6 +175,15 @@
           '';
           meta.homepage = "https://www.printables.com/model/957909";
         };
+        hemnesPowerstripHolder = mkOpenscad {
+          name = "hemnesPowerstripHolder";
+          src = ./models/hemnes-powerstrip-holder.scad;
+          meta.description = "Powerstrip holder for HEMNES bookshelf";
+          meta.longDescription = ''
+            KOPPLA Powestrip holder for the HEMNES bookshelf.
+          '';
+          meta.homepage = "https://makerworld.com/en/models/671902";
+        };
         keychainClimberHoldKnob1 = mkOpenscad {
           name = "keychainClimberHoldKnob1";
           src = ./models/keychains/keychain-climbing-hold-knob-1.scad;
