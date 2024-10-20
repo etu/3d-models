@@ -184,6 +184,22 @@
           '';
           meta.homepage = "https://makerworld.com/en/models/671902";
         };
+        ikeaVimleLegExtensions = mkOpenscad {
+          name = "ikeaVimleLegExtensions";
+          src = ./models/ikea-vimle-leg-extensions.scad;
+          meta.description = "";
+          meta.longDescription = ''
+            The couch was too low for my roomba to clean under it, so I
+            made leg extensions to put below the default legs to raise
+            the couch enough for the roomba to pass by below it.
+
+            I would recommend to put protective floor padding below the
+            legs but it's not required for use. Like the soft cloth
+            thingys that has a sticky side. I did put four of them
+            under each leg.
+          '';
+          meta.homepage = "https://makerworld.com/en/models/705989";
+        };
         keychainClimberHoldKnob1 = mkOpenscad {
           name = "keychainClimberHoldKnob1";
           src = ./models/keychains/keychain-climbing-hold-knob-1.scad;
