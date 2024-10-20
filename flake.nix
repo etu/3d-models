@@ -4,6 +4,7 @@
   inputs = {
     # Main nixpkgs channel
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    blender-nixpkgs.url = "github:NixOS/nixpkgs/d9c0b9d611277e42e6db055636ba0409c59db6d2";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -11,10 +12,15 @@
     self,
     flake-utils,
     nixpkgs,
+    blender-nixpkgs,
     ...
   }:
     flake-utils.lib.eachSystem ["x86_64-linux"] (system: let
       pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      blender-pkgs = import blender-nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
@@ -64,7 +70,7 @@
         args
         // {
           buildInputs = [
-            pkgs.blender
+            blender-pkgs.blender
             pkgs.openscad-unstable
           ];
           dontUnpack = true;
