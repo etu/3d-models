@@ -104,6 +104,82 @@
             }
             // (args.meta or {});
         }));
+
+      mkFreecad = args: (pkgs.stdenv.mkDerivation (let
+        _2gltf2 = pkgs.fetchFromGitHub {
+          repo = "2gltf2";
+          owner = "ux3d";
+          rev = "5f34c0c3ed7750d22d0d0649a4a6b4630d5be255";
+          hash = "sha256-Hch+wiAX1VnV2w3xL8WLZjq4ojV9ml6lQDcsouWakTs=";
+        };
+        freecadPythonScript = pkgs.writeText "freecad-convert.py" ''
+          import FreeCAD
+          import Mesh
+
+          def getObjectByLabel(doc, label):
+              for obj in doc.Objects:
+                  if obj.Label == label:
+                      return obj
+
+              return None
+
+          # Open the FCStd file
+          doc = FreeCAD.open("model.FCStd")
+
+          # Select the object to export
+          label = "${args.modelLabel}"
+          obj = getObjectByLabel(doc, label)
+
+          if obj is None:
+              print(f"Object with label '{label}' not found!")
+              sys.exit(1)
+          else:
+              # Export the object to STL
+              Mesh.export([obj], "model.stl")
+              Mesh.export([obj], "model.3mf")
+              print(f"Exported {label} to stl and 3mf.")
+
+          # Close the document
+          FreeCAD.closeDocument(doc.Name)
+        '';
+      in
+        args
+        // {
+          buildInputs = [
+            blender-pkgs.blender
+            pkgs.freecad
+          ];
+          dontUnpack = true;
+          HOME = "/build";
+          patchPhase = ''
+            runHook prePatch
+
+            cp $src model.FCStd
+
+            runHook postPatch
+          '';
+          buildPhase = ''
+            runHook preBuild
+
+            freecadcmd ${freecadPythonScript}
+            blender -noaudio -b -P ${_2gltf2}/2gltf2.py -- model.stl
+
+            runHook postBuild
+          '';
+          installPhase = ''
+            runHook preInstall
+
+            mkdir -p $out
+            mv model.3mf model.stl model.glb $out
+
+            runHook postInstall
+          '';
+          meta =
+            {
+              license = args.meta.license or pkgs.lib.licenses.cc-by-nc-sa-40;
+            }
+            // (args.meta or {});
+        }));
     in {
       formatter = pkgs.alejandra;
 
@@ -346,6 +422,20 @@
           name = "webcamLevler";
           src = ./models/webcam-levler.scad;
           meta.description = "Levler for a webcam";
+        };
+
+        # Freecad models
+        tempehMouldRectangleBase = mkFreecad {
+          name = "tempehMouldrectangleBase";
+          src = ./freecad-models/tempeh-mould-rectangle.FCStd;
+          modelLabel = "Base";
+          meta.description = "Mould for making tempeh in: Base";
+        };
+        tempehMouldRectangleLid = mkFreecad {
+          name = "tempehMouldrectangleLid";
+          src = ./freecad-models/tempeh-mould-rectangle.FCStd;
+          modelLabel = "Lid";
+          meta.description = "Mould for making tempeh in: Lid";
         };
       };
     });
