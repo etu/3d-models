@@ -127,21 +127,23 @@
           # Open the FCStd file
           doc = FreeCAD.open("model.FCStd")
 
-          # Select the object to export
-          label = "${args.modelLabel}"
-          obj = getObjectByLabel(doc, label)
+          try:
+              # Select the object to export
+              label = "${args.modelLabel}"
+              obj = getObjectByLabel(doc, label)
 
-          if obj is None:
-              print(f"Object with label '{label}' not found!")
-              sys.exit(1)
-          else:
-              # Export the object to STL
-              Mesh.export([obj], "model.stl")
+              if obj is None:
+                  print(f"Object with label '{label}' not found!")
+                  sys.exit(1)
+
+              # Export the object to 3MF and STL
               Mesh.export([obj], "model.3mf")
-              print(f"Exported {label} to stl and 3mf.")
+              Mesh.export([obj], "model.stl")
+              print(f"Exported {label} to 3mf and stl.")
 
-          # Close the document
-          FreeCAD.closeDocument(doc.Name)
+          finally:
+              # Close the document
+              FreeCAD.closeDocument(doc.Name)
         '';
       in
         args
