@@ -139,7 +139,15 @@
               # Export the object to 3MF and STL
               Mesh.export([obj], "model.3mf")
               Mesh.export([obj], "model.stl")
-              print(f"Exported {label} to 3mf and stl.")
+
+              # Export the object to GLB (if supported)
+              try:
+                  import ImportGui
+                  ImportGui.export([obj], "model.glb")
+                  print(f"Exported {label} to 3MF, STL, and GLB.")
+              except ImportError:
+                  print("GLB export not supported in this FreeCAD setup.", file=sys.stderr)
+                  print(f"Exported {label} to 3MF and STL.")
 
           finally:
               # Close the document
@@ -165,7 +173,17 @@
             runHook preBuild
 
             freecadcmd ${freecadPythonScript}
-            blender -noaudio -b -P ${_2gltf2}/2gltf2.py -- model.stl
+
+            # For now I rely on blender to make glb files, however,
+            # freecad may be able to do this so I'll mark it as a
+            # failure if freecad has actually managed to do this so I
+            # get notified about not needing blender here.
+            if test -e model.glb; then
+                echo "FreeCAD managed to create a GLB so blender isn't needed for this anymore"
+                exit 1
+            else
+                blender -noaudio -b -P ${_2gltf2}/2gltf2.py -- model.stl
+            fi
 
             runHook postBuild
           '';
