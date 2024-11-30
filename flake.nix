@@ -115,6 +115,7 @@
         freecadPythonScript = pkgs.writeText "freecad-convert.py" ''
           import FreeCAD
           import Mesh
+          import sys
 
           def getObjectByLabel(doc, label):
               for obj in doc.Objects:
