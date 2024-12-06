@@ -44,14 +44,62 @@
           rev = "5f34c0c3ed7750d22d0d0649a4a6b4630d5be255";
           hash = "sha256-Hch+wiAX1VnV2w3xL8WLZjq4ojV9ml6lQDcsouWakTs=";
         };
+        freecadPythonScript = pkgs.writeText "freecad-convert.py" ''
+          import FreeCAD
+          import Mesh
+          import sys
+
+          def importOpenscad(file_path):
+              try:
+                  FreeCAD.newDocument("OpenSCADImport")
+                  FreeCAD.open(file_path)
+                  return FreeCAD.ActiveDocument
+              except Exception as e:
+                  print(f"Error importing OpenSCAD file: {e}", file=sys.stderr)
+                  sys.exit(1)
+
+          def exportToFormats(obj, base_name):
+              try:
+                  # Export to 3MF and STL
+                  Mesh.export([obj], "model.3mf")
+                  Mesh.export([obj], "model.stl")
+
+                  # Export to GLB (if supported)
+                  try:
+                      import ImportGui
+                      ImportGui.export([obj], f"model.glb")
+                      print(f"Exported model to 3MF, STL, and GLB.")
+                  except ImportError:
+                      print("GLB export not supported in this FreeCAD setup.", file=sys.stderr)
+                      print(f"Exported model to 3MF and STL.")
+
+              except Exception as e:
+                  print(f"Error exporting files: {e}", file=sys.stderr)
+                  sys.exit(1)
+
+          # Import the OpenSCAD file
+          doc = importOpenscad("model.scad")
+
+          try:
+              # Select the main object (you may need to adjust this logic)
+              obj = doc.Objects[0]
+
+              # Export the object
+              exportToFormats(obj, "model")
+          finally:
+              # Close the document
+              FreeCAD.closeDocument(doc.Name)
+        '';
       in
         args
         // {
           buildInputs = [
             blender-pkgs.blender
             pkgs.openscad-unstable
+            pkgs.freecad
           ];
           dontUnpack = true;
+          HOME = "/build";
           patchPhase = ''
             runHook prePatch
 
@@ -62,9 +110,18 @@
           buildPhase = ''
             runHook preBuild
 
-            openscad -o model.3mf --export-format 3mf    model.scad
-            openscad -o model.stl --export-format binstl model.scad
-            blender -noaudio -b -P ${_2gltf2}/2gltf2.py -- model.stl
+            freecadcmd ${freecadPythonScript}
+
+            # For now I rely on blender to make glb files, however,
+            # freecad may be able to do this so I'll mark it as a
+            # failure if freecad has actually managed to do this so I
+            # get notified about not needing blender here.
+            if test -e model.glb; then
+                echo "FreeCAD managed to create a GLB so blender isn't needed for this anymore"
+                exit 1
+            else
+                blender -noaudio -b -P ${_2gltf2}/2gltf2.py -- model.stl
+            fi
 
             runHook postBuild
           '';
