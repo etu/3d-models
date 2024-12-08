@@ -447,16 +447,18 @@
 
         # Freecad models
         tempehMoldRectangleBase = mkFreecad {
-          name = "tempehMoldrectangleBase";
+          name = "tempehMoldRectangleBase";
           src = ./freecad-models/tempeh-mold-rectangle.FCStd;
           modelLabel = "Base";
-          meta.description = "Mold for making tempeh in: Base";
+          meta.description = "Mold for making rectangular tempeh in: Base";
+          meta.homepage = "https://makerworld.com/en/models/860724";
         };
         tempehMoldRectangleLid = mkFreecad {
-          name = "tempehMoldrectangleLid";
+          name = "tempehMoldRectangleLid";
           src = ./freecad-models/tempeh-mold-rectangle.FCStd;
           modelLabel = "Lid";
-          meta.description = "Mold for making tempeh in: Lid";
+          meta.description = "Mold for making rectangular tempeh in: Lid";
+          meta.homepage = "https://makerworld.com/en/models/860724";
         };
       };
     });
