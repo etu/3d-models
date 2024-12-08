@@ -446,17 +446,17 @@
         };
 
         # Freecad models
-        tempehMouldRectangleBase = mkFreecad {
-          name = "tempehMouldrectangleBase";
-          src = ./freecad-models/tempeh-mould-rectangle.FCStd;
+        tempehMoldRectangleBase = mkFreecad {
+          name = "tempehMoldrectangleBase";
+          src = ./freecad-models/tempeh-mold-rectangle.FCStd;
           modelLabel = "Base";
-          meta.description = "Mould for making tempeh in: Base";
+          meta.description = "Mold for making tempeh in: Base";
         };
-        tempehMouldRectangleLid = mkFreecad {
-          name = "tempehMouldrectangleLid";
-          src = ./freecad-models/tempeh-mould-rectangle.FCStd;
+        tempehMoldRectangleLid = mkFreecad {
+          name = "tempehMoldrectangleLid";
+          src = ./freecad-models/tempeh-mold-rectangle.FCStd;
           modelLabel = "Lid";
-          meta.description = "Mould for making tempeh in: Lid";
+          meta.description = "Mold for making tempeh in: Lid";
         };
       };
     });
