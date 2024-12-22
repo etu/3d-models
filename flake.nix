@@ -407,11 +407,6 @@
           meta.description = "Roborock Stopper for Dryer Stand";
           meta.longDescription = "Stopper for a Roborock vacuum cleaner to prevent it from getting stuck on my dryer stand.";
         };
-        routerHolder = mkOpenscad {
-          name = "routerHolder";
-          src = ./openscad-models/router-holder.scad;
-          meta.description = "Holder for a router";
-        };
         shoppingCartFakeCoin = mkOpenscad {
           name = "shoppingCartFakeCoin";
           src = ./openscad-models/shopping-cart-fake-coin.scad;
