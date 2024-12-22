@@ -8,5 +8,5 @@ useful formats (3mf and STL) by running
 `nix build github:etu/3d-modules#<name>`.
 
 Most of my models are OpenSCAD and the source for them is stored in
-`models/` but I've also started to build some FreeCAD models which
-lives in `freecad-models/`.
+`openscad-models/` but I've also started to build some FreeCAD models
+which lives in `freecad-models/`.

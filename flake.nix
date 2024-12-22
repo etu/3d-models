@@ -215,7 +215,7 @@
       packages = {
         beadsCuteElephant = mkOpenscad {
           name = "beadsCuteElephant";
-          src = ./models/beads/cute-elephant.scad;
+          src = ./openscad-models/beads/cute-elephant.scad;
           postPatch = ''
             sed -i 's#elephant_stand.stl#${elephantStand}#' model.scad
           '';
@@ -229,7 +229,7 @@
         };
         beadsNixosLogo = mkOpenscad {
           name = "beadsNixosLogo";
-          src = ./models/beads/nixos-logo.scad;
+          src = ./openscad-models/beads/nixos-logo.scad;
           meta.description = "Beads: NixOS Logo";
           meta.longDescription = ''
             This is a bead in the shape of a NixOS logo.
@@ -240,7 +240,7 @@
         };
         businessCardHolder = mkOpenscad {
           name = "businessCardHolder";
-          src = ./models/business-card-holder.scad;
+          src = ./openscad-models/business-card-holder.scad;
           meta.description = "Business Card Holder";
           meta.longDescription = ''
             This is a business card holder. The original Openscad model is
@@ -250,13 +250,13 @@
         };
         cabinetHook = mkOpenscad {
           name = "cabinetHook";
-          src = ./models/cabinet-hook.scad;
+          src = ./openscad-models/cabinet-hook.scad;
           meta.description = "Cabinet Hook";
           meta.longDescription = "Hook for hanging stuff in one of my cabinets.";
         };
         coffeeBeansFunnel = mkOpenscad {
           name = "coffeeBeansFunnel";
-          src = ./models/coffee-beans-funnel.scad;
+          src = ./openscad-models/coffee-beans-funnel.scad;
           meta.description = "Coffee Beans Funnel";
           meta.longDescription = ''
             Funnel for pouring coffee beans into a coffee grinder.
@@ -264,13 +264,13 @@
         };
         garbageBinHook = mkOpenscad {
           name = "garbageBinHook";
-          src = ./models/garbage-bin-hook.scad;
+          src = ./openscad-models/garbage-bin-hook.scad;
           meta.description = "Garbage Bin Hook";
           meta.longDescription = "Hook for hanging a garbage bin under my sink.";
         };
         headphoneHolderSamsungG9 = mkOpenscad {
           name = "headphoneHolderSamsungG9";
-          src = ./models/headphone-holder-samsung-g9.scad;
+          src = ./openscad-models/headphone-holder-samsung-g9.scad;
           meta.description = "Headphone holder for Samsung G9";
           meta.longDescription = ''
             Hook for hanging up headphones on the back of of the
@@ -280,7 +280,7 @@
         };
         hemnesPowerstripHolder = mkOpenscad {
           name = "hemnesPowerstripHolder";
-          src = ./models/hemnes-powerstrip-holder.scad;
+          src = ./openscad-models/hemnes-powerstrip-holder.scad;
           meta.description = "Powerstrip holder for HEMNES bookshelf";
           meta.longDescription = ''
             KOPPLA Powestrip holder for the HEMNES bookshelf.
@@ -289,7 +289,7 @@
         };
         ikeaVimleLegExtensions = mkOpenscad {
           name = "ikeaVimleLegExtensions";
-          src = ./models/ikea-vimle-leg-extensions.scad;
+          src = ./openscad-models/ikea-vimle-leg-extensions.scad;
           meta.description = "";
           meta.longDescription = ''
             The couch was too low for my roomba to clean under it, so I
@@ -305,7 +305,7 @@
         };
         keychainClimberHoldKnob1 = mkOpenscad {
           name = "keychainClimberHoldKnob1";
-          src = ./models/keychains/keychain-climbing-hold-knob-1.scad;
+          src = ./openscad-models/keychains/keychain-climbing-hold-knob-1.scad;
           postPatch = ''
             sed -i 's#Rock_wall_hold_knob_1.stl#${rockWallHoldKnob1}#' model.scad
           '';
@@ -315,7 +315,7 @@
         };
         keychainClimberHoldKnob2 = mkOpenscad {
           name = "keychainClimberHoldKnob2";
-          src = ./models/keychains/keychain-climbing-hold-knob-2.scad;
+          src = ./openscad-models/keychains/keychain-climbing-hold-knob-2.scad;
           postPatch = ''
             sed -i 's#Rock_wall_hold_knob_2.stl#${rockWallHoldKnob2}#' model.scad
           '';
@@ -325,7 +325,7 @@
         };
         keychainClimberHoldKnob3 = mkOpenscad {
           name = "keychainClimberHoldKnob3";
-          src = ./models/keychains/keychain-climbing-hold-knob-3.scad;
+          src = ./openscad-models/keychains/keychain-climbing-hold-knob-3.scad;
           postPatch = ''
             sed -i 's#Rock_wall_hold_knob_3.stl#${rockWallHoldKnob3}#' model.scad
           '';
@@ -335,7 +335,7 @@
         };
         keychainClimberHoldKnob4 = mkOpenscad {
           name = "keychainClimberHoldKnob4";
-          src = ./models/keychains/keychain-climbing-hold-knob-4.scad;
+          src = ./openscad-models/keychains/keychain-climbing-hold-knob-4.scad;
           postPatch = ''
             sed -i 's#Rock_wall_hold_knob_4.stl#${rockWallHoldKnob4}#' model.scad
           '';
@@ -345,7 +345,7 @@
         };
         keychainClimberHoldKnob5 = mkOpenscad {
           name = "keychainClimberHoldKnob5";
-          src = ./models/keychains/keychain-climbing-hold-knob-5.scad;
+          src = ./openscad-models/keychains/keychain-climbing-hold-knob-5.scad;
           postPatch = ''
             sed -i 's#Rock_wall_hold_knob_5.stl#${rockWallHoldKnob5}#' model.scad
           '';
@@ -355,7 +355,7 @@
         };
         keychainClimberHoldKnob6 = mkOpenscad {
           name = "keychainClimberHoldKnob6";
-          src = ./models/keychains/keychain-climbing-hold-knob-6.scad;
+          src = ./openscad-models/keychains/keychain-climbing-hold-knob-6.scad;
           postPatch = ''
             sed -i 's#Rock_wall_hold_knob_6.stl#${rockWallHoldKnob6}#' model.scad
           '';
@@ -365,24 +365,24 @@
         };
         keychainLabel = mkOpenscad {
           name = "keychainLabel";
-          src = ./models/keychains/keychain-label.scad;
+          src = ./openscad-models/keychains/keychain-label.scad;
           meta.description = "Keyring with text";
         };
         lampTopCorner = mkOpenscad {
           name = "lampTopCorner";
-          src = ./models/lamp-top-corner.scad;
+          src = ./openscad-models/lamp-top-corner.scad;
           meta.description = "Lamp top corner";
           meta.longDescription = "Top corner for a lamp for a relative where the original part broke.";
         };
         logitechCameraHolder = mkOpenscad {
           name = "logitechCameraHolder";
-          src = ./models/logitech-camera-holder.scad;
+          src = ./openscad-models/logitech-camera-holder.scad;
           meta.description = "Holder for a Logitech camera";
           meta.longDescription = "Holder for a Logitech camera where I've removed the original case..";
         };
         magnetsCuteElephant = mkOpenscad {
           name = "magnetsCuteElephant";
-          src = ./models/magnets/cute-elephant-magnet.scad;
+          src = ./openscad-models/magnets/cute-elephant-magnet.scad;
           postPatch = ''
             sed -i 's#elephant_stand.stl#${elephantStand}#' model.scad
           '';
@@ -392,56 +392,56 @@
         };
         paperFoodGarbageBagHolder = mkOpenscad {
           name = "paperFoodGarbageBagHolder";
-          src = ./models/paper-food-garbage-bag-holder.scad;
+          src = ./openscad-models/paper-food-garbage-bag-holder.scad;
           meta.description = "Holder for a paper food garbage bags under the sink.";
         };
         ringToy = mkOpenscad {
           name = "ringToy";
-          src = ./models/ring-toy.scad;
+          src = ./openscad-models/ring-toy.scad;
           meta.description = "Customizable ring toy";
           meta.homepage = "https://www.printables.com/model/711269";
         };
         roborockStopperForDryerStand = mkOpenscad {
           name = "roborockStopperForDryerStand";
-          src = ./models/roborock-stopper-for-dryer-stand.scad;
+          src = ./openscad-models/roborock-stopper-for-dryer-stand.scad;
           meta.description = "Roborock Stopper for Dryer Stand";
           meta.longDescription = "Stopper for a Roborock vacuum cleaner to prevent it from getting stuck on my dryer stand.";
         };
         routerHolder = mkOpenscad {
           name = "routerHolder";
-          src = ./models/router-holder.scad;
+          src = ./openscad-models/router-holder.scad;
           meta.description = "Holder for a router";
         };
         shoppingCartFakeCoin = mkOpenscad {
           name = "shoppingCartFakeCoin";
-          src = ./models/shopping-cart-fake-coin.scad;
+          src = ./openscad-models/shopping-cart-fake-coin.scad;
           meta.description = "Fake coin 10SEK";
           meta.longDescription = "Fake coin for shopping carts in the shape of 10SEK.";
           meta.homepage = "https://www.printables.com/model/711248";
         };
         sparvHooksNerfRifleWallHooks = mkOpenscad {
           name = "sparvHooksNerfRifleWallHooks";
-          src = ./models/sparv-hooks/nerf-rifle-wall-hooks.scad;
+          src = ./openscad-models/sparv-hooks/nerf-rifle-wall-hooks.scad;
           meta.description = "Sparv hooks: Nerf rifle hooks";
         };
         tableStabilizier = mkOpenscad {
           name = "tableStabilizier";
-          src = ./models/table-stabilizier.scad;
+          src = ./openscad-models/table-stabilizier.scad;
           meta.description = "Stabilizer for a table";
         };
         toothbrushHolder = mkOpenscad {
           name = "toothbrushHolder";
-          src = ./models/toothbrush-holder.scad;
+          src = ./openscad-models/toothbrush-holder.scad;
           meta.description = "Toothbrush holder";
         };
         waterCo2MachineBottleStabilizer = mkOpenscad {
           name = "waterCo2MachineBottleStabilizer";
-          src = ./models/water-co2-machine-bottle-stabilizer.scad;
+          src = ./openscad-models/water-co2-machine-bottle-stabilizer.scad;
           meta.description = "Stabilizer for a water CO2 machine bottle";
         };
         webcamLevler = mkOpenscad {
           name = "webcamLevler";
-          src = ./models/webcam-levler.scad;
+          src = ./openscad-models/webcam-levler.scad;
           meta.description = "Levler for a webcam";
         };
 
