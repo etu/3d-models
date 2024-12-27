@@ -447,6 +447,12 @@
           modelLabel = "Base";
           meta.description = "Mold for making circular tempeh in: Base";
         };
+        tempehMoldCircleBaseLid = mkFreecad {
+          name = "tempehMoldCircleBaseLid";
+          src = ./freecad-models/tempeh-mold-circle.FCStd;
+          modelLabel = "BaseLid";
+          meta.description = "Mold for making circular tempeh in: Base Lid";
+        };
         tempehMoldCircleLid = mkFreecad {
           name = "tempehMoldCircleLid";
           src = ./freecad-models/tempeh-mold-circle.FCStd;
