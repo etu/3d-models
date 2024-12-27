@@ -472,6 +472,13 @@
           meta.description = "Mold for making rectangular tempeh in: Base";
           meta.homepage = "https://makerworld.com/en/models/860724";
         };
+        tempehMoldRectangleBaseLid = mkFreecad {
+          name = "tempehMoldRectangleBaseLid";
+          src = ./freecad-models/tempeh-mold-rectangle.FCStd;
+          modelLabel = "BaseLid";
+          meta.description = "Mold for making rectangular tempeh in: Base Lid";
+          meta.homepage = "https://makerworld.com/en/models/860724";
+        };
         tempehMoldRectangleLid = mkFreecad {
           name = "tempehMoldRectangleLid";
           src = ./freecad-models/tempeh-mold-rectangle.FCStd;
