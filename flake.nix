@@ -446,30 +446,35 @@
           src = ./freecad-models/tempeh-mold-circle.FCStd;
           modelLabel = "Base";
           meta.description = "Mold for making circular tempeh in: Base";
+          meta.homepage = "https://makerworld.com/en/models/866500";
         };
         tempehMoldCircleBaseLid = mkFreecad {
           name = "tempehMoldCircleBaseLid";
           src = ./freecad-models/tempeh-mold-circle.FCStd;
           modelLabel = "BaseLid";
           meta.description = "Mold for making circular tempeh in: Base Lid";
+          meta.homepage = "https://makerworld.com/en/models/866500";
         };
         tempehMoldCircleLid = mkFreecad {
           name = "tempehMoldCircleLid";
           src = ./freecad-models/tempeh-mold-circle.FCStd;
           modelLabel = "Lid";
           meta.description = "Mold for making circular tempeh in: Lid";
+          meta.homepage = "https://makerworld.com/en/models/866500";
         };
         tempehMoldCylinderBase = mkFreecad {
           name = "tempehMoldCylinderBase";
           src = ./freecad-models/tempeh-mold-cylinder.FCStd;
           modelLabel = "Base";
           meta.description = "Mold for making cylindrical tempeh in: Base";
+          meta.homepage = "https://makerworld.com/en/models/940755";
         };
         tempehMoldCylinderLid = mkFreecad {
           name = "tempehMoldCylinderLid";
           src = ./freecad-models/tempeh-mold-cylinder.FCStd;
           modelLabel = "Lid";
           meta.description = "Mold for making cylindrical tempeh in: Lid (needs two of this one)";
+          meta.homepage = "https://makerworld.com/en/models/940755";
         };
         tempehMoldRectangleBase = mkFreecad {
           name = "tempehMoldRectangleBase";
