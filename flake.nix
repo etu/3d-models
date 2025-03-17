@@ -26,37 +26,15 @@
       };
 
       # Dependency used for several pakages
-      # https://www.printables.com/model/439440
-      elephantStand = builtins.fetchurl {
-        url = "https://files.printables.com/media/prints/439440/stls/3631985_8486b45f-085f-4228-af0c-b3e8f0a1a5a6/elephant_stand.stl";
-        sha256 = "sha256:0d2rbydn83j4hlhlbf0b2h7jsynygd6ifb0xr5i42w0sxxjkx24j";
-      };
+      elephantStand = ./vendor/elephant-stand/model.stl;
 
-      # https://www.printables.com/model/309327
-      rockWallHoldKnob1 = builtins.fetchurl {
-        url = "https://files.printables.com/media/prints/309327/stls/2689887_f1e9ae5b-1fa4-4726-ab11-fec3baabdb3d/rock-wall-hold-knob-1.stl";
-        sha256 = "sha256:1zb4kfvr6hyzi2cx0dfzrpv9jsziyzwb7gyivak2b35adf78w0hc";
-      };
-      rockWallHoldKnob2 = builtins.fetchurl {
-        url = "https://files.printables.com/media/prints/309327/stls/2689889_5391558d-0d32-4261-86cb-ae08737bcbc0/rock-wall-hold-knob-2.stl";
-        sha256 = "sha256:0jc77vybz4hlp10cvys5s34cyj81dqac0gkgd55rhkwmdiazqc4v";
-      };
-      rockWallHoldKnob3 = builtins.fetchurl {
-        url = "https://files.printables.com/media/prints/309327/stls/2689886_abd27929-895c-4d18-9104-3c4d82d0f7c6/rock-wall-hold-knob-3.stl";
-        sha256 = "sha256:132lvq7k84cha7zaxlilgp57kzy11b2hz02r85bqhcbrp5vj0jy2";
-      };
-      rockWallHoldKnob4 = builtins.fetchurl {
-        url = "https://files.printables.com/media/prints/309327/stls/2689890_36d796a3-97d9-4815-b6fd-e895557f20a5/rock-wall-hold-knob-4.stl";
-        sha256 = "sha256:006kp3nsqa02rivsm2y7xwgpvrg1vbv6ffrpjrb3mc1x02yh8n9g";
-      };
-      rockWallHoldKnob5 = builtins.fetchurl {
-        url = "https://files.printables.com/media/prints/309327/stls/2689888_4eee9b1b-f040-4182-8062-362e27d6bcd7/rock-wall-hold-knob-5.stl";
-        sha256 = "sha256:1c8k307cacibiy9dax80knxz45acmp2miav4fxpkp1qkab6x2x8c";
-      };
-      rockWallHoldKnob6 = builtins.fetchurl {
-        url = "https://files.printables.com/media/prints/309327/stls/2689891_5b761490-e751-4f2b-a0f8-696b98878f79/rock-wall-hold-knob-6.stl";
-        sha256 = "sha256:0d3d1cifdfv927xhgw59y4vgajsrm2w7xwj3v294iyq15l5rcsi2";
-      };
+      # Dependencies for the keychainClimberHoldKnob* packages
+      rockWallHoldKnob1 = ./vendor/rock-climbing-knobs/rock-wall-hold-knob-1.stl;
+      rockWallHoldKnob2 = ./vendor/rock-climbing-knobs/rock-wall-hold-knob-2.stl;
+      rockWallHoldKnob3 = ./vendor/rock-climbing-knobs/rock-wall-hold-knob-3.stl;
+      rockWallHoldKnob4 = ./vendor/rock-climbing-knobs/rock-wall-hold-knob-4.stl;
+      rockWallHoldKnob5 = ./vendor/rock-climbing-knobs/rock-wall-hold-knob-5.stl;
+      rockWallHoldKnob6 = ./vendor/rock-climbing-knobs/rock-wall-hold-knob-6.stl;
 
       # Helper function to build scad files to 3mf, stl and gbl files.
       mkOpenscad = args: (pkgs.stdenv.mkDerivation (let
