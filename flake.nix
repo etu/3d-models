@@ -84,16 +84,11 @@
         }));
 
       mkFreecad = args: (pkgs.stdenv.mkDerivation (let
-        _2gltf2 = pkgs.fetchFromGitHub {
-          repo = "2gltf2";
-          owner = "ux3d";
-          rev = "5f34c0c3ed7750d22d0d0649a4a6b4630d5be255";
-          hash = "sha256-Hch+wiAX1VnV2w3xL8WLZjq4ojV9ml6lQDcsouWakTs=";
-        };
         freecadPythonScript = pkgs.writeText "freecad-convert.py" ''
           import FreeCAD
           import Mesh
           import sys
+          from FreeCAD import Import
 
           def getObjectByLabel(doc, label):
               for obj in doc.Objects:
@@ -104,6 +99,7 @@
 
           # Open the FCStd file
           doc = FreeCAD.open("model.FCStd")
+          doc.recompute()
 
           try:
               # Select the object to export
@@ -114,18 +110,11 @@
                   print(f"Object with label '{label}' not found!")
                   sys.exit(1)
 
-              # Export the object to 3MF and STL
+              # Export the object to 3MF and glb
               Mesh.export([obj], "model.3mf")
-              Mesh.export([obj], "model.stl")
+              Import.export([obj], "model.glb")
 
-              # Export the object to GLB (if supported)
-              try:
-                  import ImportGui
-                  ImportGui.export([obj], "model.glb")
-                  print(f"Exported {label} to 3MF, STL, and GLB.")
-              except ImportError:
-                  print("GLB export not supported in this FreeCAD setup.", file=sys.stderr)
-                  print(f"Exported {label} to 3MF and STL.")
+              print(f"Exported {label} to 3MF and GLB.")
 
           finally:
               # Close the document
@@ -135,7 +124,6 @@
         args
         // {
           buildInputs = [
-            blender-pkgs.blender
             pkgs.freecad
           ];
           dontUnpack = true;
@@ -152,24 +140,13 @@
 
             freecadcmd ${freecadPythonScript}
 
-            # For now I rely on blender to make glb files, however,
-            # freecad may be able to do this so I'll mark it as a
-            # failure if freecad has actually managed to do this so I
-            # get notified about not needing blender here.
-            if test -e model.glb; then
-                echo "FreeCAD managed to create a GLB so blender isn't needed for this anymore"
-                exit 1
-            else
-                blender -noaudio -b -P ${_2gltf2}/2gltf2.py -- model.stl
-            fi
-
             runHook postBuild
           '';
           installPhase = ''
             runHook preInstall
 
             mkdir -p $out
-            mv model.3mf model.stl model.glb $out
+            mv model.3mf model.glb $out
 
             runHook postInstall
           '';
