@@ -401,6 +401,7 @@
           src = ./freecad-models/spice-holder.FCStd;
           modelLabel = "Body";
           meta.description = "Holder for spice jars";
+          meta.homepage = "https://makerworld.com/en/models/1452266";
         };
         tempehMoldCircleBase = mkFreecad {
           name = "tempehMoldCircleBase";
