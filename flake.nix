@@ -459,6 +459,12 @@
           meta.description = "Mold for making rectangular tempeh in: Lid";
           meta.homepage = "https://makerworld.com/en/models/860724";
         };
+        twistyPuzzleCubeHolder = mkFreecad {
+          name = "twistyPuzzleCubeHolder";
+          src = ./freecad-models/twisty-puzzle-holders.FCStd;
+          modelLabel = "CubeHolder";
+          meta.description = "Holder for a twisty puzzle cube";
+        };
       };
     });
 }
