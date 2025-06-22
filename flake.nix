@@ -466,6 +466,13 @@
           meta.description = "Holder for a twisty puzzle cube";
           meta.homepage = "https://makerworld.com/en/models/1538951";
         };
+        twistyPuzzleMegaminxHolder = mkFreecad {
+          name = "twistyPuzzleMegaminxHolder";
+          src = ./freecad-models/twisty-puzzle-holders.FCStd;
+          modelLabel = "MegaminxHolderV2";
+          meta.description = "Holder for a twisty puzzle megaminx";
+          meta.homepage = "https://makerworld.com/en/models/1538951";
+        };
       };
     });
 }
