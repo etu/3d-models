@@ -4,7 +4,6 @@
   inputs = {
     # Main nixpkgs channel
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    blender-nixpkgs.url = "github:NixOS/nixpkgs/d9c0b9d611277e42e6db055636ba0409c59db6d2";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -12,15 +11,10 @@
     self,
     flake-utils,
     nixpkgs,
-    blender-nixpkgs,
     ...
   }:
     flake-utils.lib.eachSystem ["x86_64-linux"] (system: let
       pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      blender-pkgs = import blender-nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
@@ -36,22 +30,34 @@
       rockWallHoldKnob5 = ./vendor/rock-climbing-knobs/rock-wall-hold-knob-5.stl;
       rockWallHoldKnob6 = ./vendor/rock-climbing-knobs/rock-wall-hold-knob-6.stl;
 
-      # Helper function to build scad files to 3mf, stl and gbl files.
+      # Helper function to build scad files to 3mf, stl and glb files using OpenSCAD and FreeCAD.
       mkOpenscad = args: (pkgs.stdenv.mkDerivation (let
-        _2gltf2 = pkgs.fetchFromGitHub {
-          repo = "2gltf2";
-          owner = "ux3d";
-          rev = "5f34c0c3ed7750d22d0d0649a4a6b4630d5be255";
-          hash = "sha256-Hch+wiAX1VnV2w3xL8WLZjq4ojV9ml6lQDcsouWakTs=";
-        };
+        freecadPythonScript = pkgs.writeText "freecad-convert-stl.py" ''
+          import FreeCAD
+          import Mesh
+          import Import
+          import sys
+
+          # Import the STL file
+          doc = FreeCAD.newDocument()
+          obj = Mesh.Mesh("model.stl")
+          mesh_obj = doc.addObject("Mesh::Feature", "Mesh")
+          mesh_obj.Mesh = obj
+          doc.recompute()
+
+          try:
+              Mesh.export([mesh_obj], "model.3mf")
+              Import.export([mesh_obj], "model.glb")
+              print("Exported STL to 3MF and GLB.")
+          finally:
+              FreeCAD.closeDocument(doc.Name)
+        '';
       in
         args
         // {
-          buildInputs = [
-            blender-pkgs.blender
-            pkgs.openscad-unstable
-          ];
+          buildInputs = [pkgs.openscad-unstable pkgs.freecad];
           dontUnpack = true;
+          HOME = "/build";
           patchPhase = ''
             runHook prePatch
 
@@ -62,9 +68,11 @@
           buildPhase = ''
             runHook preBuild
 
-            openscad -o model.3mf --export-format 3mf    model.scad
+            # Export STL from OpenSCAD
             openscad -o model.stl --export-format binstl model.scad
-            blender -noaudio -b -P ${_2gltf2}/2gltf2.py -- model.stl
+
+            # Convert STL to 3MF and GLB using FreeCAD
+            freecadcmd ${freecadPythonScript}
 
             runHook postBuild
           '';
