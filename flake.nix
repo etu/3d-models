@@ -481,6 +481,12 @@
           meta.description = "Holder for a twisty puzzle megaminx";
           meta.homepage = "https://makerworld.com/en/models/1538951";
         };
+        whiteboardPenHolder = mkFreecad {
+          name = "whiteboardPenHolder";
+          src = ./freecad-models/whiteboard-pen-holder.FCStd;
+          modelLabel = "Body";
+          meta.description = "Holder for whiteboard pens";
+        };
       };
     });
 }
