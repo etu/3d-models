@@ -481,6 +481,13 @@
           meta.description = "Holder for a twisty puzzle megaminx";
           meta.homepage = "https://makerworld.com/en/models/1538951";
         };
+        twistyPuzzleCubeStensil = mkFreecad {
+          name = "twistyPuzzleCubeStensil";
+          src = ./freecad-models/twisty-puzzle-stencil.FCStd;
+          modelLabel = "Cube";
+          meta.description = "Stencil to draw different sizes of rubiks cube faces";
+          meta.homepage = "https://makerworld.com/en/models/2261453";
+        };
         whiteboardPenHolder = mkFreecad {
           name = "whiteboardPenHolder";
           src = ./freecad-models/whiteboard-pen-holder.FCStd;
