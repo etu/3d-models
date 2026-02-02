@@ -1,2 +1,5 @@
 # Ignore nix result outputs
 result*
+
+# Ignore Freecad backup files
+*.FCBak
