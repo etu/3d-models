@@ -404,6 +404,12 @@
         };
 
         # Freecad models
+        fridgeDoorhandle = mkFreecad {
+          name = "fridgeDoorhandle";
+          src = ./freecad-models/fridge-doorhandle.FCStd;
+          modelLabel = "Body";
+          meta.description = "The doorhandle on my fridge broke, here's a new one.";
+        };
         spiceHolder = mkFreecad {
           name = "spiceHolderBase";
           src = ./freecad-models/spice-holder.FCStd;
