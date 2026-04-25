@@ -164,18 +164,8 @@
             }
             // (args.meta or {});
         }));
-    in {
-      formatter = pkgs.alejandra;
 
-      # Check target to build all the models defined as packages.
-      checks.allModels = pkgs.runCommand "allModels" {} ''
-        ${builtins.concatStringsSep "\n" (map (pkgName: ''
-          mkdir -p $out/${pkgName}
-          ln -s ${self.packages.${system}.${pkgName}}/* $out/${pkgName}/
-        '') (builtins.attrNames self.packages.${system}))}
-      '';
-
-      packages = {
+      modelPackages = {
         beadsCuteElephant = mkOpenscad {
           name = "beadsCuteElephant";
           src = ./openscad-models/beads/cute-elephant.scad;
@@ -501,5 +491,36 @@
           meta.description = "Holder for whiteboard pens";
         };
       };
+
+      metadataJson = pkgs.writeText "metadata.json" (builtins.toJSON (map (pkg: {
+        name = pkg.name;
+        title = pkg.meta.description or pkg.name;
+        description = pkg.meta.longDescription or "";
+        license.spdxId = pkg.meta.license.spdxId;
+        license.url = pkg.meta.license.url;
+        homepage = pkg.meta.homepage or "";
+      }) (builtins.attrValues modelPackages)));
+
+      release = pkgs.runCommand "3d-models-release" {} ''
+        mkdir -p $out/models
+        cp ${metadataJson} $out/metadata.json
+        ${builtins.concatStringsSep "\n" (map (pkg: ''
+          cp ${pkg}/model.3mf $out/models/${pkg.name}.3mf
+          cp ${pkg}/model.glb $out/models/${pkg.name}.glb
+        '') (builtins.attrValues modelPackages))}
+        chmod -R +w $out
+      '';
+    in {
+      formatter = pkgs.alejandra;
+
+      # Check target to build all the models defined as packages.
+      checks.allModels = pkgs.runCommand "allModels" {} ''
+        ${builtins.concatStringsSep "\n" (map (pkgName: ''
+          mkdir -p $out/${pkgName}
+          ln -s ${modelPackages.${pkgName}}/* $out/${pkgName}/
+        '') (builtins.attrNames modelPackages))}
+      '';
+
+      packages = modelPackages // {inherit release;};
     });
 }

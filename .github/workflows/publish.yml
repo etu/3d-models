@@ -1,0 +1,33 @@
+---
+name: Publish Release
+
+'on':
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    name: Build and publish release
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: DeterminateSystems/nix-installer-action@v22
+
+      - run: nix build .#release
+
+      - name: Package release
+        run: |
+          mkdir 3d-models
+          cp -r result/* 3d-models/
+          tar -czf 3d-models.tar.gz 3d-models/
+          echo "tag=$(date +%Y-%m-%d)-$(git rev-parse --short HEAD)" >> "$GITHUB_ENV"
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.tag }}
+          name: ${{ env.tag }}
+          files: 3d-models.tar.gz
+          make_latest: true
