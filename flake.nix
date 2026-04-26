@@ -79,6 +79,7 @@
           installPhase = ''
             runHook preInstall
 
+            ${pkgs.python3}/bin/python3 ${./strip-timestamps.py} model.3mf model.glb
             mkdir -p $out
             mv model.3mf model.stl model.glb $out
 
@@ -153,6 +154,7 @@
           installPhase = ''
             runHook preInstall
 
+            ${pkgs.python3}/bin/python3 ${./strip-timestamps.py} model.3mf model.glb
             mkdir -p $out
             mv model.3mf model.glb $out
 
