@@ -2,6 +2,8 @@
 let
   stripTimestamps = import ./packages/strip-timestamps.nix { inherit pkgs; };
 
+  ccByNcSa40 = pkgs.lib.licenses.cc-by-nc-sa-40 // { free = true; };
+
   elephantStand = ./vendor/elephant-stand/model.stl;
 
   rockWallHoldKnob1 = ./vendor/rock-climbing-knobs/rock-wall-hold-knob-1.stl;
@@ -73,7 +75,7 @@ let
           runHook postInstall
         '';
         meta = {
-          license = args.meta.license or pkgs.lib.licenses.cc-by-nc-sa-40;
+          license = args.meta.license or ccByNcSa40;
         }
         // (args.meta or { });
       }
@@ -152,7 +154,7 @@ let
           runHook postInstall
         '';
         meta = {
-          license = args.meta.license or pkgs.lib.licenses.cc-by-nc-sa-40;
+          license = args.meta.license or ccByNcSa40;
         }
         // (args.meta or { });
       }
