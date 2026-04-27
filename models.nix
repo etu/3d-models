@@ -74,6 +74,7 @@ let
 
           runHook postInstall
         '';
+        passthru.sourceHash = builtins.hashFile "sha256" args.src;
         meta = {
           license = args.meta.license or ccByNcSa40;
         }
@@ -153,6 +154,7 @@ let
 
           runHook postInstall
         '';
+        passthru.sourceHash = builtins.hashFile "sha256" args.src;
         meta = {
           license = args.meta.license or ccByNcSa40;
         }
@@ -496,6 +498,7 @@ let
         license.spdxId = pkg.meta.license.spdxId;
         license.url = pkg.meta.license.url;
         homepage = pkg.meta.homepage or "";
+        sourceHash = pkg.passthru.sourceHash;
       }) (builtins.attrValues modelPackages)
     )
   );
