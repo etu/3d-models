@@ -1,5 +1,7 @@
 { pkgs }:
 let
+  stripTimestamps = import ./packages/strip-timestamps.nix { inherit pkgs; };
+
   elephantStand = ./vendor/elephant-stand/model.stl;
 
   rockWallHoldKnob1 = ./vendor/rock-climbing-knobs/rock-wall-hold-knob-1.stl;
@@ -36,6 +38,7 @@ let
       in
       args
       // {
+        nativeBuildInputs = [ stripTimestamps ];
         buildInputs = [
           pkgs.openscad-unstable
           pkgs.freecad
@@ -63,7 +66,7 @@ let
         installPhase = ''
           runHook preInstall
 
-          ${pkgs.python3}/bin/python3 ${./strip-timestamps.py} model.3mf model.glb
+          strip-timestamps model.3mf model.glb
           mkdir -p $out
           mv model.3mf model.stl model.glb $out
 
@@ -119,6 +122,7 @@ let
       in
       args
       // {
+        nativeBuildInputs = [ stripTimestamps ];
         buildInputs = [
           pkgs.freecad
         ];
@@ -141,7 +145,7 @@ let
         installPhase = ''
           runHook preInstall
 
-          ${pkgs.python3}/bin/python3 ${./strip-timestamps.py} model.3mf model.glb
+          strip-timestamps model.3mf model.glb
           mkdir -p $out
           mv model.3mf model.glb $out
 
