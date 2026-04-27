@@ -13,5 +13,5 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@v22
       - uses: DeterminateSystems/flake-checker-action@v12
 
-      - run: 'nix fmt . -- --check'
+      - run: 'nix fmt'
       - run: 'nix flake check'
