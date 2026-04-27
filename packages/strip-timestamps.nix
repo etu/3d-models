@@ -54,6 +54,10 @@
             f.write(rest)
 
 
+    if len(sys.argv) != 3:
+        print("usage: strip-timestamps <file.3mf> <file.glb>", file=sys.stderr)
+        sys.exit(1)
+
     fix_3mf(sys.argv[1])
     fix_glb(sys.argv[2])
   ''
