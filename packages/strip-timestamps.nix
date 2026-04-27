@@ -1,5 +1,5 @@
 { pkgs, ... }:
-pkgs.writers.writePython3Bin "strip-timestamps" { } ''
+(pkgs.writers.writePython3Bin "strip-timestamps" { flakeIgnore = [ "E203" "E501" ]; } ''
   import struct
   import json
   import zipfile
@@ -49,4 +49,6 @@ pkgs.writers.writePython3Bin "strip-timestamps" { } ''
 
   fix_3mf(sys.argv[1])
   fix_glb(sys.argv[2])
-''
+'').overrideAttrs (_: {
+  meta.mainProgram = "strip-timestamps";
+})
