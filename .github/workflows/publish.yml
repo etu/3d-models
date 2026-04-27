@@ -25,7 +25,7 @@ jobs:
           tar -czf 3d-models.tar.gz 3d-models/
           echo "tag=$(date +%Y-%m-%d)-$(git rev-parse --short HEAD)" >> "$GITHUB_ENV"
 
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ env.tag }}
           name: ${{ env.tag }}
